@@ -1,0 +1,94 @@
+<html>
+    <head>
+<style>
+    /* body{
+        background-color: cadetblue;
+    } */
+ #d4{
+    width: 300px;
+    height: 200px;
+ }
+ #small-pic{
+    margin-top: 10px;
+    width: 150px;
+    height:90px;
+    margin-left: 70px;
+    border-radius: 50px;
+ }
+</style>
+    </head>
+    <body>
+        <center><h1 id="d1"></h1></center>
+        <br>
+       <center>  <label for="">Name:</label><input id="d5" type="text"> </center>
+       <br>
+       <center>  <label for="">Number:</label><input id="d6" type="number"> </center>
+       <br>
+       <center>  <label for="">Email:</label><input id="d7" type="email"> </center>
+       <br>
+       <center>  <label for="">Enter Image url :</label><input id="d8" type="url"> </center>
+       <br>
+      <center> <button id="d2" onclick="addbutton()"></button></center>
+      <div id="d4"></div>
+          <script>
+               var c = document.getElementById("d1")
+               c.innerHTML="Add Contact Cards"
+
+               var d = document.getElementById("d2")
+               d.innerHTML="Add contact"
+
+               var contacts=[];
+               function addbutton(){
+                var contact = {
+                    Name :"",
+                   Number :"",
+                   Email :"",
+                EnterImageurl :"" 
+                }
+                contact.Name  =  document.getElementById("d5").value
+                contact.Number = document.getElementById("d6").value
+                contact.Email = document.getElementById("d7").value
+                contact.EnterImageurl = document.getElementById("d8").value
+                contacts.push(contact)
+                console.log(contacts)
+                gendiv();
+               }
+               function gendiv(){
+                var f = document.getElementById("d4")
+                f.innerHTML= ""
+              contacts.forEach(function (a,b){
+
+                var newDiv=document.createElement("div")
+                newDiv.style.border="1px solid black"
+                newDiv.style.backgroundColor="gold"
+                newDiv.id="new-div"
+               
+                var newImg=document.createElement("img")
+                newImg.id="small-pic"
+                newImg.src=a.EnterImageurl
+                
+                newDiv.appendChild(newImg)
+
+                var newName = document.createElement("p")
+                newName.innerHTML= "Name :" +a.Name
+                newName.style.textAlign="center"
+                newDiv.appendChild(newName)
+
+                var newNumber=document.createElement("p")
+                newNumber.innerHTML="Number :"+a.Number
+                newNumber.style.textAlign="center"
+                newDiv.appendChild(newNumber)
+
+                var newMail= document.createElement("p")
+                newMail.innerHTML="E-Mail :"+a.Email
+                newMail.style.textAlign="center"
+                newDiv.appendChild(newMail)
+                   
+                f.appendChild(newDiv)
+              })          
+               }
+
+         </script>
+    </body>
+
+</html>

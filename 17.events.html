@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            #d1{
+               width: 400px;
+               height: 200px; 
+            }
+            #d2{
+                background-color: yellow;
+                margin-right: 300px;
+            }
+            #d3{
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div>
+                <h1 style="color: red;">Image Carousel</h1>
+                <img id="d1" src="" alt="">
+            </div>
+            <button id="d2" onclick={prev(event)}>Prev</button>
+            <button id="d3" onclick={next(event)}>Next</button>
+        </center>
+        <script>
+            var img=["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxk6COPFCwJxSEsYKNBDEzRkAhgnghr4wtTg&usqp=CAU",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrh9-ftTq0TLQuESpKn73UqBjKAlz77xIFFA&usqp=CAU",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtg6SNRxoTBGTHMxnV59khl2t1dAS0oynUMg&usqp=CAU",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaV_2PlSJWEOxjfHXTYtT5aHKtVc8X51kTJw&usqp=CAU",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjGZeGigf9vkVR-YreVENETvl2qEyaulGoGQ&usqp=CAU",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR40LYDdeK15APQnZa2dp7fi4EUjlYQ2BK21Q&usqp=CAU"]
+                var a=document.getElementById('d1')
+
+                var index=[0];
+                a.src=img[index]
+                function next(ev){
+                    if(index<img.length-1){
+                        index++;
+                        a.src=img[index]
+                    }
+                    else{
+                        index=0;
+                        x.src=img[index]
+                    }
+                }
+                function prev(ev){
+                    if(index===0){
+                        index=img.length-1;
+                        a.src=img[index]
+                    }
+                    else{
+                        index--;
+                        x.src=img[index]
+                    }
+                }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            #d2{
+                width: 200px;
+                height:100px
+            }
+            #small-pic{
+                margin-top: 10px;
+                width: 150px;
+                height:90px;
+                margin-left: 70px;
+                border-radius: 50px;
+            }
+        </style>
+    </head>
+    <body>
+       <center><label for="">Name:</label><input type="text" id="d3"></center><br>
+       <center><label for="">Number:</label><input type="number" id="d4"></center><br>
+       <center><label for="">Email:</label><input type="email" id="d5"></center><br>
+       <center><label for="">Image URL:</label><input type="URL" id="d6"></center><br>
+       <center> <button id="d1" onclick="button()">Add Contact</button></center>
+       <div id="d2"></div>
+        <script>
+            var a=document.getElementById('d1')
+            a.innerHTML='Add Contact'
+            
+            var contacts=[]
+            function button(){
+               var contact ={
+                Name:"",
+                Number:"",
+                Email:"",
+                ImageURL:""
+               }
+               contact.Name=document.getElementById("d3").value;
+               contact.Number=document.getElementById("d4").value;
+               contact.Email=document.getElementById("d5").value;
+               contact.ImageURL=document.getElementById("d6").value;
+               contacts.push(contact)
+               gendiv();
+            }
+            function gendiv(){
+            var x=document.getElementById("d2")
+            x.innerHTML=""
+            contacts.forEach(function(a,b){
+              
+                var newDiv=document.createElement("div")
+                newDiv.style.border="1px solid black"
+                newDiv.style.backgroundColor="gold"
+                newDiv.id="new-div"
+               
+                var newImg=document.createElement("img")
+                newImg.id="small-pic"
+                newImg.src=a.EnterImageurl
+                
+                newDiv.appendChild(newImg)
+
+                var newName = document.createElement("p")
+                newName.innerHTML= "Name :" +a.Name
+                newName.style.textAlign="center"
+                newDiv.appendChild(newName)
+
+                var newNumber=document.createElement("p")
+                newNumber.innerHTML="Number :"+a.Number
+                newNumber.style.textAlign="center"
+                newDiv.appendChild(newNumber)
+
+                var newMail= document.createElement("p")
+                newMail.innerHTML="E-Mail :"+a.Email
+                newMail.style.textAlign="center"
+                newDiv.appendChild(newMail)
+                   
+                x.appendChild(newDiv)
+            })
+            }
+        </script>
+    </body>
+</html>
